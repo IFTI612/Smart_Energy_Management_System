@@ -6,6 +6,9 @@ from app.schemas import DirectiveInterpretation, DirectiveType
 
 def parse_raw_llm_json(raw_text: str) -> Optional[List[Dict]]:
     text = raw_text.strip()
+    # Strip Qwen3 thinking tags (model wraps reasoning in <think>...</think>)
+    text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL)
+    text = text.strip()
     text = re.sub(r'^```[a-zA-Z]*\n', '', text, flags=re.MULTILINE)
     text = re.sub(r'```$', '', text, flags=re.MULTILINE)
     text = text.strip()
@@ -20,6 +23,20 @@ def parse_raw_llm_json(raw_text: str) -> Optional[List[Dict]]:
                     return parsed[key]
         return None
     except json.JSONDecodeError:
+        # Fallback: try to extract the first JSON object or array from the text
+        for pattern in [r'\{[\s\S]*\}', r'\[[\s\S]*\]']:
+            match = re.search(pattern, text)
+            if match:
+                try:
+                    parsed = json.loads(match.group())
+                    if isinstance(parsed, list) and all(isinstance(item, dict) for item in parsed):
+                        return parsed
+                    elif isinstance(parsed, dict):
+                        for key in parsed:
+                            if isinstance(parsed[key], list) and all(isinstance(item, dict) for item in parsed[key]):
+                                return parsed[key]
+                except json.JSONDecodeError:
+                    continue
         return None
 
 def _is_valid_numeric(val: Any) -> bool:

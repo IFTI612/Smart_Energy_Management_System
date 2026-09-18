@@ -44,6 +44,7 @@ Operator Notes:
 [1] Do not charge the battery between 5 PM and 8 PM.
 [2] The cafeteria menu changes tomorrow.
 [3] The battery charger will be isolated from 2 AM until 5 AM for electrical maintenance.
+[4] Keep at least 30% battery reserve from 6 PM to 11 PM.
 Battery capacity: 200 kWh
 
 Assistant:
@@ -76,6 +77,13 @@ Assistant:
       "directive_type": "no_charge_window",
       "structured_adjustment": {"hours": [2, 3, 4]},
       "explanation": "Charger isolation implies battery charging is unavailable."
+    },
+    {
+      "note_index": 4,
+      "applies": true,
+      "directive_type": "minimum_battery_reserve",
+      "structured_adjustment": {"hours": [18, 19, 20, 21, 22], "minimum_energy_kwh": 60.0},
+      "explanation": "30% of 200 kWh = 60 kWh minimum reserve."
     }
   ]
 }
@@ -121,8 +129,9 @@ async def interpret_operator_notes(notes: List[str], capacity_kwh: float) -> Lis
                             temperature=0,
                             timeout=req_timeout
                         )
-                        llm_response_text = resp.choices[0].message.content
-                        break
+                        if resp.choices and resp.choices[0].message.content:
+                            llm_response_text = resp.choices[0].message.content
+                            break
                     except Exception as e:
                         if attempt == 1:
                             pass
@@ -132,13 +141,9 @@ async def interpret_operator_notes(notes: List[str], capacity_kwh: float) -> Lis
                     async with httpx.AsyncClient(timeout=FALLBACK_TIMEOUT) as client:
                         url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
                         payload = {
-                            "contents": [
-                                {"role": "user", "parts": [{"text": _SYSTEM_PROMPT + "\n\n" + user_prompt}]}
-                            ],
-                            "generationConfig": {
-                                "responseMimeType": "application/json",
-                                "temperature": 0.0
-                            }
+                            "system_instruction": {"parts": [{"text": _SYSTEM_PROMPT}]},
+                            "contents": [{"role": "user", "parts": [{"text": user_prompt}]}],
+                            "generationConfig": {"responseMimeType": "application/json", "temperature": 0.0}
                         }
                         resp = await client.post(url, json=payload)
                         resp.raise_for_status()

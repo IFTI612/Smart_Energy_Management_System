@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 from enum import Enum
 from typing import List, Optional
 import math
@@ -79,6 +79,12 @@ class HourlyPlanItem(BaseModel):
     battery_action: BatteryAction
     battery_kwh: float
     battery_energy_after_kwh: float
+    
+    @model_validator(mode='after')
+    def check_idle_battery(self) -> 'HourlyPlanItem':
+        if self.battery_action == BatteryAction.idle and self.battery_kwh != 0.0:
+            raise ValueError("battery_kwh must be 0 when battery_action is idle")
+        return self
 
 class OptimizeResponse(BaseModel):
     scenario_id: str

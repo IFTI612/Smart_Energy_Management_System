@@ -100,24 +100,36 @@ def solve_energy_plan(scenario_id: str,
         d_val = discharge[h].varValue or 0.0
         e_val = energy_after[h].varValue or 0.0
         
-        action = "idle"
-        if c_val > 1e-4:
+        # Net out charge/discharge to handle degenerate LP solutions
+        # where both may be nonzero simultaneously
+        net = c_val - d_val
+        if net > 1e-4:
             action = "charge"
-        elif d_val > 1e-4:
+            batt_kwh = net
+        elif net < -1e-4:
             action = "discharge"
+            batt_kwh = -net
+        else:
+            action = "idle"
+            batt_kwh = 0.0
             
-        total_grid_kwh += g_val
-        total_cost_bdt += g_val * tariff_dict[h]
-        if g_val > peak_grid_kwh:
-            peak_grid_kwh = g_val
+        r_grid = round(g_val, 4)
+        r_solar = round(s_val, 4)
+        r_batt = round(batt_kwh, 4)
+        r_energy = round(e_val, 4)
+            
+        total_grid_kwh += r_grid
+        total_cost_bdt += r_grid * tariff_dict[h]
+        if r_grid > peak_grid_kwh:
+            peak_grid_kwh = r_grid
             
         hourly_plan.append({
             "hour": h,
-            "grid_kwh": round(g_val, 4),
-            "solar_used_kwh": round(s_val, 4),
+            "grid_kwh": r_grid,
+            "solar_used_kwh": r_solar,
             "battery_action": action,
-            "battery_kwh": round(c_val if action == "charge" else d_val, 4),
-            "battery_energy_after_kwh": round(e_val, 4)
+            "battery_kwh": r_batt,
+            "battery_energy_after_kwh": r_energy
         })
         
     summary = {

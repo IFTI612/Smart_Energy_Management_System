@@ -44,14 +44,15 @@ async def health_check():
 @app.post("/optimize-energy", response_model=OptimizeResponse)
 async def optimize_energy(req: OptimizeRequest):
     valid_directives = await interpret_operator_notes(req.operator_notes, req.battery.capacity_kwh)
-
-    if req.scenario_id == "SAMPLE-02":
-        print(f"\n[DEBUG] Case 2 Directives: {valid_directives}\n")
     
     def run_opt():
         return solve_energy_plan(req.scenario_id, req.hours, req.battery, valid_directives)
         
     hourly_plan, total_grid, total_cost, peak_grid, summary = await asyncio.to_thread(run_opt)
+    
+    applied_types = [d.directive_type.value for d in valid_directives if d.applies]
+    types_str = ", ".join(applied_types) if applied_types else "no adjustments"
+    plan_summary_text = f"Optimized 24-hour schedule with {types_str}, achieving total cost {summary['total_cost_bdt']} BDT using {summary['total_grid_kwh']} kWh from grid."
     
     return OptimizeResponse(
         scenario_id=req.scenario_id,
@@ -60,5 +61,5 @@ async def optimize_energy(req: OptimizeRequest):
         total_cost_bdt=summary["total_cost_bdt"],
         total_grid_kwh=summary["total_grid_kwh"],
         peak_grid_kwh=summary["peak_grid_kwh"],
-        plan_summary=json.dumps(summary)
+        plan_summary=plan_summary_text
     )

@@ -15,6 +15,21 @@ def test_parse_raw_llm_json():
     
     # Malformed JSON
     assert parse_raw_llm_json('[{"note_index": 0}') is None
+
+def test_parse_qwen3_thinking_tags():
+    """Qwen3 wraps output in <think>...</think> tags before the JSON"""
+    text = '<think>\nLet me analyze these notes...\nThe first note is about solar.\n</think>\n{"directives": [{"note_index": 0, "applies": true, "directive_type": "no_op", "structured_adjustment": null, "explanation": "test"}]}'
+    result = parse_raw_llm_json(text)
+    assert result is not None
+    assert len(result) == 1
+    assert result[0]["note_index"] == 0
+
+def test_parse_json_embedded_in_prose():
+    """Fallback extraction when JSON is embedded in non-JSON text"""
+    text = 'Here is the result:\n{"directives": [{"note_index": 0}]}\nDone.'
+    result = parse_raw_llm_json(text)
+    assert result is not None
+    assert result[0]["note_index"] == 0
     
 def test_repair_unknown_directive_and_missing_index():
     parsed = [

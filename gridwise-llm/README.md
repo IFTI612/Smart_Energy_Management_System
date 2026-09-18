@@ -5,7 +5,7 @@ GridWise is a production-grade, zero-placeholder API that merges deterministic M
 ## Architecture
 
 - **FastAPI Core**: A high-performance async entrypoint delegating requests effectively to threaded workflows.
-- **LLM Interpreter**: Queries Groq (Llama3) primarily via strict JSON schema prompting. Fallbacks to Gemini API on timeout or failure. Outputs are deterministically mapped.
+- **LLM Interpreter**: Queries Groq (Qwen3-27B) primarily via strict JSON schema prompting. Fallbacks to Gemini API on timeout or failure. Outputs are deterministically mapped. Handles Qwen3 thinking tags transparently.
 - **Guardrails Engine**: Pure functions isolating keys, mapping out-of-bounds metrics (e.g. `factor` restricted to `[0.0, 1.0]`), enforcing index alignments and resolving unknown/malformed JSON into `no_op`.
 - **PuLP Optimizer (CBC)**: Builds the linear schedule, guaranteeing hourly energy balances, capacity maximums, rate limits, and end-of-day neutrality `energy_after[23] == initial`. Runs asynchronously on a separate thread block to prevent event loop stuttering.
 
@@ -53,7 +53,7 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 |----------|---------|---------|
 | `GROQ_API_KEY` | (Required) | Primary LLM Key |
 | `GEMINI_API_KEY`| (Required) | Fallback LLM Key |
-| `GROQ_MODEL` | `llama-3.3-70b-versatile` | Primary model identifier |
+| `GROQ_MODEL` | `qwen/qwen3.8-27b` | Primary model identifier |
 | `GEMINI_MODEL` | `gemini-2.5-flash` | Fallback model identifier |
 | `PORT` | `8000` | Application bind port |
 
