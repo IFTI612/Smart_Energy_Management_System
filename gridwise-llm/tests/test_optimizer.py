@@ -29,12 +29,12 @@ def test_successful_optimization(standard_hours, standard_battery):
     
     # Verify energy balance for hour 0
     h0 = hourly_plan[0]
-    supply = h0.grid_kwh + h0.solar_used_kwh + (h0.battery_kwh if h0.battery_action == "discharge" else 0.0)
-    used = standard_hours[0].demand_kwh + (h0.battery_kwh if h0.battery_action == "charge" else 0.0)
+    supply = h0["grid_kwh"] + h0["solar_used_kwh"] + (h0["battery_kwh"] if h0["battery_action"] == "discharge" else 0.0)
+    used = standard_hours[0].demand_kwh + (h0["battery_kwh"] if h0["battery_action"] == "charge" else 0.0)
     assert abs(supply - used) < 1e-3
     
     # Verify end-of-day neutrality
-    assert abs(hourly_plan[-1].battery_energy_after_kwh - standard_battery.initial_energy_kwh) < 1e-3
+    assert abs(hourly_plan[-1]["battery_energy_after_kwh"] - standard_battery.initial_energy_kwh) < 1e-3
 
 def test_infeasible_plan(standard_hours, standard_battery):
     zero_solar_hours = [

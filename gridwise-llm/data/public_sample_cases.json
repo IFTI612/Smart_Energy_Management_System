@@ -175,7 +175,7 @@
     ],
     "battery": {
       "capacity_kwh": 100.0,
-      "initial_energy_kwh": 20.0,
+      "initial_energy_kwh": 50.0,
       "minimum_energy_kwh": 10.0,
       "max_charge_kwh_per_hour": 30.0,
       "max_discharge_kwh_per_hour": 30.0
