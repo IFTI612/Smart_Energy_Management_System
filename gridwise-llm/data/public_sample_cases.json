@@ -1,0 +1,1714 @@
+[
+  {
+    "scenario_id": "case_1",
+    "operator_notes": [
+      "Do not charge the battery between 5 PM and 8 PM"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "no_charge_window",
+        "hours": [
+          17,
+          18,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "scenario_id": "case_2",
+    "operator_notes": [
+      "Keep at least 50 kWh in the battery all day"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "minimum_battery_reserve",
+        "hours": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "minimum_energy_kwh": 50.0
+      }
+    ]
+  },
+  {
+    "scenario_id": "case_3",
+    "operator_notes": [
+      "Reduce solar to 20% from 10 AM to 1 PM"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "solar_reduction",
+        "hours": [
+          10,
+          11,
+          12
+        ],
+        "factor": 0.2
+      }
+    ]
+  },
+  {
+    "scenario_id": "case_4",
+    "operator_notes": [
+      "Do not discharge between 1 AM and 4 AM"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "no_discharge_window",
+        "hours": [
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "scenario_id": "case_5",
+    "operator_notes": [
+      "Limit grid to 20 kWh from 8 AM to 10 AM"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "max_grid_window",
+        "hours": [
+          8,
+          9
+        ],
+        "max_grid_kwh": 20.0
+      }
+    ]
+  },
+  {
+    "scenario_id": "case_6",
+    "operator_notes": [
+      "No op command just do it"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "no_op",
+        "hours": []
+      }
+    ]
+  },
+  {
+    "scenario_id": "case_7",
+    "operator_notes": [
+      "Reduce solar to 80% from 12 PM to 2 PM"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "solar_reduction",
+        "hours": [
+          12,
+          13
+        ],
+        "factor": 0.8
+      }
+    ]
+  },
+  {
+    "scenario_id": "case_8",
+    "operator_notes": [
+      "Keep at least 30 kWh in the battery from 6 PM to 11 PM"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "minimum_battery_reserve",
+        "hours": [
+          18,
+          19,
+          20,
+          21,
+          22
+        ],
+        "minimum_energy_kwh": 30.0
+      }
+    ]
+  },
+  {
+    "scenario_id": "case_9",
+    "operator_notes": [
+      "Do not charge between 8 AM and 11 AM"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "no_charge_window",
+        "hours": [
+          8,
+          9,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "scenario_id": "case_10",
+    "operator_notes": [
+      "Limit grid to 0 kWh from 2 PM to 4 PM"
+    ],
+    "battery": {
+      "capacity_kwh": 100.0,
+      "initial_energy_kwh": 20.0,
+      "minimum_energy_kwh": 10.0,
+      "max_charge_kwh_per_hour": 30.0,
+      "max_discharge_kwh_per_hour": 30.0
+    },
+    "hours": [
+      {
+        "hour": 0,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 1,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 2,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 3,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 4,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 5,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 6,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 7,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 8,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 9,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 10,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 11,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 12,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 13,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 14,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 15,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 16,
+        "demand_kwh": 50.0,
+        "solar_kwh": 20.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 17,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 18,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 19,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 20,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 21,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 22,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      },
+      {
+        "hour": 23,
+        "demand_kwh": 50.0,
+        "solar_kwh": 0.0,
+        "tariff_bdt_per_kwh": 10.0
+      }
+    ],
+    "expected_directives": [
+      {
+        "directive_type": "max_grid_window",
+        "hours": [
+          14,
+          15
+        ],
+        "max_grid_kwh": 0.0
+      }
+    ]
+  }
+]
